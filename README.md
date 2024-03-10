@@ -1,6 +1,6 @@
-# edas
+# KLShop
 
-Edas is an IFRS Feliz website, with the aim of assisting students in their studies
+Ecommerce with Vue
 
 ## Project Setup
 
