@@ -37,7 +37,7 @@ async function getProducts() {
 
 <template>
   <body v-if="reloadTheme">
-    <Header :theme="theme" @changeTheme="changeTheme" id="header" />
+    <Header :theme="theme" @changeTheme="changeTheme" />
     <RouterView :theme="theme" :products="products" />
   </body>
 </template>
