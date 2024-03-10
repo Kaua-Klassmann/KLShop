@@ -1,0 +1,23 @@
+{
+  "processador": {
+    "Intel": [
+      {
+        "nome": "Processador Intel Core i9-12900",
+        "imagem": "https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/b/x/bx80715129001.jpg",
+        "preco": 2705.87
+      },
+      {
+        "nome": "Processador Intel Core i3-14100F",
+        "imagem": "https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/b/x/bx8071514100f.jpg",
+        "preco": 964.69
+      }
+    ],
+    "AMD": [
+      {
+        "nome": "Processador AMD Ryzen 7 8700G",
+        "imagem": "https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/1/0/100-100001236box1.jpg",
+        "preco": 2235.28
+      }
+    ]
+  }
+}
