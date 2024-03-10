@@ -2,7 +2,11 @@
 
 Ecommerce with Vue
 
-## Project Setup
+## Site to test
+
+https://klshop.netlify.app
+
+### Project Setup
 
 ```sh
 npm install
