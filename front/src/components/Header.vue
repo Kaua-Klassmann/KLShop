@@ -194,7 +194,7 @@ main {
 }
 
 #menu {
-  min-height: 100vh;
+  height: 100vh;
   width: 300px;
   max-width: 80vw;
   overflow-y: scroll;
