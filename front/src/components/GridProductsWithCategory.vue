@@ -1,47 +1,19 @@
 <script setup>
-import { ref, defineProps, computed } from "vue";
+import { ref, defineProps } from "vue";
 
-const props = defineProps(["products", "category"]);
+const props = defineProps(["products"]);
 
-const category = props.category;
-const productsProps = props.products[category];
-
-const products = ref([])
-
-const categories = computed(() => {
-  if(category.value == 'processador') {
-    return ['Intel', 'AMD']
-  }
-
-  return ['Intel', 'AMD']
-})
-
-for(const cat of categories.value) {
-  for(const p of productsProps[cat]) {
-    products.value.push(p)
-  }
-}
-
-function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-
-  return arr;
-}
-
-products.value = shuffleArray(products.value)
+const products = ref(props.products)
 </script>
 
 <template>
-  <h3 class="pb-3 ps-3 pt-5">
+  <h3 class="ps-3 pt-5">
     <slot></slot>
   </h3>
   <div class="row p-3">
     <section
       class="col-md-3 mb-4"
-      v-for="product in products.slice(0, 4)"
+      v-for="product in products"
       :key="product.nome"
     >
         <img
@@ -60,7 +32,7 @@ products.value = shuffleArray(products.value)
           }}</b
         >
         <p class="span mb-1">no PIX com 15% de desconto</p>
-        <b class="text-danger">R$ {{ product.preco.toLocaleString("pt-BR") }}</b>
+        <b class="text-danger">R$ {{ (product.preco * 1).toLocaleString("pt-BR") }}</b>
         <div class="d-flex gap-1">
           <p class="span">em até 12x de</p>
           <b class="text-danger"

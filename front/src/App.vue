@@ -1,11 +1,7 @@
 <script setup>
-import { nextTick, onBeforeMount, onMounted, ref } from "vue";
+import { nextTick, ref } from "vue";
 import { RouterView } from "vue-router";
 import Header from "@/components/Header.vue";
-
-onBeforeMount(() => {
-  getProducts();
-});
 
 const theme = ref(localStorage.getItem("theme") || "dark");
 const reloadTheme = ref(true);
@@ -25,19 +21,11 @@ async function changeTheme() {
 
   reloadTheme.value = true;
 }
-
-const products = ref({});
-
-async function getProducts() {
-  products.value = await fetch("../src/assets/hardware.json").then((response) =>
-    response.json(),
-  );
-}
 </script>
 
 <template>
   <body v-if="reloadTheme">
     <Header :theme="theme" @changeTheme="changeTheme" />
-    <RouterView :theme="theme" :products="products" />
+    <RouterView :theme="theme" />
   </body>
 </template>
