@@ -1,11 +1,16 @@
 <script setup>
-import { nextTick, ref } from "vue";
-import { RouterView } from "vue-router";
+import { nextTick, ref, watch } from "vue";
+import { RouterView, useRoute } from "vue-router";
 import Header from "@/components/Header.vue";
 
 const theme = ref(localStorage.getItem("theme") || "dark");
+const route = useRoute();
 const reloadTheme = ref(true);
-const fixed = ref(false);
+const fixed = ref(true);
+
+watch(route, () => {
+  fixed.value = true
+});
 
 async function changeTheme() {
   if (theme.value == "dark") {
