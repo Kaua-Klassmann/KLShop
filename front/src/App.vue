@@ -5,6 +5,7 @@ import Header from "@/components/Header.vue";
 
 const theme = ref(localStorage.getItem("theme") || "dark");
 const reloadTheme = ref(true);
+const fixed = ref(false);
 
 async function changeTheme() {
   if (theme.value == "dark") {
@@ -21,11 +22,21 @@ async function changeTheme() {
 
   reloadTheme.value = true;
 }
+
+function changeFixed() {
+  fixed.value = !fixed.value;
+}
 </script>
 
 <template>
   <body v-if="reloadTheme">
-    <Header :theme="theme" @changeTheme="changeTheme" />
-    <RouterView :theme="theme" />
+    <Header :theme="theme" @changeTheme="changeTheme" @changeFixed="changeFixed"/>
+    <RouterView :theme="theme" :class="{'fixed': fixed}"/>
   </body>
 </template>
+
+<style scoped>
+.fixed {
+  position: fixed;
+}
+</style>

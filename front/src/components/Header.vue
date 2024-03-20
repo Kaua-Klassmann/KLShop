@@ -1,8 +1,9 @@
 <script setup>
-import { defineProps, ref, watch } from "vue";
+import { defineProps, ref, watch, defineEmits } from "vue";
 import { useRoute, useRouter, RouterLink } from "vue-router";
 
 const props = defineProps(["theme"]);
+const emits = defineEmits(["changeFixed"]);
 const route = useRoute();
 const router = useRouter();
 
@@ -13,10 +14,12 @@ watch(route, () => {
 const menu = ref(false);
 
 function openMenu() {
+  emits("changeFixed");
   menu.value = true;
 }
 
 function closeMenu() {
+  emits("changeFixed");
   menu.value = false;
 }
 
@@ -191,7 +194,7 @@ main {
 }
 
 #menu {
-  height: 100vh;
+  min-height: 100vh;
   width: 300px;
   max-width: 80vw;
   overflow-y: scroll;
