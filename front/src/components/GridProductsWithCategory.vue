@@ -1,18 +1,23 @@
 <script setup>
 import { ref, defineProps } from "vue";
+import { RouterLink } from "vue-router";
 
-const props = defineProps(["products"]);
+const props = defineProps(["products", "theme", "path"]);
 
-const products = ref(props.products)
+const products = ref(props.products);
+const theme = ref(props.theme);
+const path = ref(props.path);
 </script>
 
 <template>
-  <h3 class="ps-3 pt-5">
+  <h3 class="ps-3 pt-4 pb-0">
     <slot></slot>
   </h3>
-  <div class="row p-3">
-    <section
+  <div class="row px-3 pt-3">
+    <RouterLink
+      :to="`/${path}/${product.id}`"
       class="col-md-3 mb-4"
+      :class="`text-bg-${theme}`"
       v-for="product in products"
       :key="product.nome"
     >
@@ -44,11 +49,15 @@ const products = ref(props.products)
             }}</b
           >
         </div>
-    </section>
+    </RouterLink>
   </div>
 </template>
 
 <style scoped>
+* {
+  text-decoration: none;
+}
+
 .row,
 p,
 b {
