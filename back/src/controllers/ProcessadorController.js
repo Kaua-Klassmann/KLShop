@@ -8,6 +8,12 @@ class ProcessadorController {
         return res.send(processors);
     };
 
+    async show(req, res) {
+        const processor = await Processador.findByPk(req.params.id); 
+
+        return res.send(processor);
+    };
+
 };
 
 export default new ProcessadorController();

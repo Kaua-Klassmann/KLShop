@@ -15,6 +15,10 @@ class GraphicCard extends Model {
                     allowNull: false
                 },
 
+                preco: {
+                    type: DataTypes.DECIMAL
+                },
+
                 clock: {
                     type: DataTypes.INTEGER,
                     allowNull: false
