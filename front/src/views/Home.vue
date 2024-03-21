@@ -8,10 +8,12 @@ const props = defineProps(["theme"]);
 const theme = ref(props.theme);
 const mostrarProdutos = ref(false);
 
-const products = ref();
+const processors = ref();
+const grapficCards = ref();
 
 onBeforeMount(async () => {
-  products.value = await axios.get('processors').then(response => response.data);
+  processors.value = await axios.get('processors').then(response => response.data);
+  grapficCards.value = await axios.get('graphicCards').then(response => response.data);
 
   mostrarProdutos.value = true;
 })
@@ -19,8 +21,11 @@ onBeforeMount(async () => {
 
 <template>
   <body :class="`text-bg-${theme}`">
-    <GridProductsWithCategory :products="products" v-if="mostrarProdutos">
+    <GridProductsWithCategory :products="processors" :theme="theme" path="processor" v-if="mostrarProdutos">
       PROCESSADORES
+    </GridProductsWithCategory>
+    <GridProductsWithCategory :products="grapficCards" :theme="theme" path="graphicCard" v-if="mostrarProdutos">
+      PLACA DE VIDEO
     </GridProductsWithCategory>
   </body>
 </template>

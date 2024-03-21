@@ -1,3 +1,3 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://klshop-backend.onrender.com';
+axios.defaults.baseURL = 'http://localhost:3000';
